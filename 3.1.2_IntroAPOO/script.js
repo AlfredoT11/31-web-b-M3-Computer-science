@@ -70,3 +70,16 @@ persona1.mostrarMascotas();
 persona2.agregarMascota(mascota2);
 persona2.mostrarMascotas();
 
+/* Ejercicio:
+
+Crear una clase llamada Contacto con los siguientes datos
+    Nombre 
+    Apellidos
+    Telefono
+
+
+Después crear una clase que sea ListaContactos la cual tendrá dos métodos
+    Agregar un contacto
+    Buscar un contacto por nombre
+*/
+
