@@ -1,4 +1,3 @@
-
 //Superclase o Clase padre
 class Pokemon{
     
@@ -33,8 +32,32 @@ class PokemonFuego extends Pokemon{
     }
 
     //Este método es específico de esta clase.
-    quemar(){
-        console.log(`${this.nombre} está QUEMANDO a su oponente`);
+    quemar(pokemonAtacado){
+
+        let numeroTurnos = Math.round(Math.random() * 4);
+
+        for(let i = 0; i < numeroTurnos; i++){
+            console.log(`${this.nombre} está QUEMANDO a otro pokemon`);
+            console.log(`${this.nombre} tiene un ataque de ${this.nivelAtaque} y un nivel de vida de ${this.nivelDeVida}`);
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida antes del ataque: ${pokemonAtacado.nivelDeVida}`);
+            pokemonAtacado.nivelDeVida -= (this.nivelAtaque * 1.2); // pokemonAtacado.nivelDeVida = pokemonAtacado.nivelDeVida - this.nivelAtaque;
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida después del ataque: ${pokemonAtacado.nivelDeVida}`);
+            console.log(`Nivel de vida de ${this.nombre} después de atacar ${this.nivelDeVida}`);
+        }
+    }
+
+    //Aquí está la sobreescritura del método atacar de la clase padre.
+    atacar(pokemonAtacado){
+        let numeroTurnos = Math.round(Math.random() * 4);
+
+        for(let i = 0; i < numeroTurnos; i++){
+            console.log(`${this.nombre} está QUEMANDO a otro pokemon`);
+            console.log(`${this.nombre} tiene un ataque de ${this.nivelAtaque} y un nivel de vida de ${this.nivelDeVida}`);
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida antes del ataque: ${pokemonAtacado.nivelDeVida}`);
+            pokemonAtacado.nivelDeVida -= (this.nivelAtaque * 1.2); // pokemonAtacado.nivelDeVida = pokemonAtacado.nivelDeVida - this.nivelAtaque;
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida después del ataque: ${pokemonAtacado.nivelDeVida}`);
+            console.log(`Nivel de vida de ${this.nombre} después de atacar ${this.nivelDeVida}`);
+        }
     }
 
 }
@@ -48,8 +71,31 @@ class PokemonHielo extends Pokemon{
     }
 
     //Este método es específico de esta clase
-    congelar(){
-        console.log(`${this.nombre} está CONGELANDO a su oponente`);
+    congelar(pokemonAtacado){
+        let numeroTurnos = Math.round(Math.random() * 4);
+
+        for(let i = 0; i < numeroTurnos; i++){
+            console.log(`${this.nombre} está CONGELANDO a otro pokemon`);
+            console.log(`${this.nombre} tiene un ataque de ${this.nivelAtaque} y un nivel de vida de ${this.nivelDeVida}`);
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida antes del ataque: ${pokemonAtacado.nivelDeVida}`);
+            pokemonAtacado.nivelDeVida -= (this.nivelAtaque * 1.5); // pokemonAtacado.nivelDeVida = pokemonAtacado.nivelDeVida - this.nivelAtaque;
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida después del ataque: ${pokemonAtacado.nivelDeVida}`);
+            console.log(`Nivel de vida de ${this.nombre} después de atacar ${this.nivelDeVida}`);
+        }
+    }
+
+    //Aquí está la sobreescritura del método atacar de la clase padre.
+    atacar(pokemonAtacado){
+        let numeroTurnos = Math.round(Math.random() * 4);
+
+        for(let i = 0; i < numeroTurnos; i++){
+            console.log(`${this.nombre} está CONGELANDO a otro pokemon`);
+            console.log(`${this.nombre} tiene un ataque de ${this.nivelAtaque} y un nivel de vida de ${this.nivelDeVida}`);
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida antes del ataque: ${pokemonAtacado.nivelDeVida}`);
+            pokemonAtacado.nivelDeVida -= (this.nivelAtaque * 1.5); // pokemonAtacado.nivelDeVida = pokemonAtacado.nivelDeVida - this.nivelAtaque;
+            console.log(`${pokemonAtacado.nombre} está siendo atacado. Nivel de vida después del ataque: ${pokemonAtacado.nivelDeVida}`);
+            console.log(`Nivel de vida de ${this.nombre} después de atacar ${this.nivelDeVida}`);
+        }
     }
 }
 
@@ -59,6 +105,7 @@ class Combate{
         this.pokemonB = pokemonB;
     }
 
+    //instanceof nos permite verificar la clase de un objeto.
     pokemonAAtaca(){
         this.pokemonA.atacar(this.pokemonB);
     }
@@ -74,8 +121,6 @@ let pepito = new PokemonFuego('Charmander', 60, 15, 150, 'Naranja');
 let hielin = new PokemonHielo('Lapras', 80, 17, 300, -50);
 
 pokemon1.atacar(pepito);
-pepito.quemar();
-hielin.congelar();
 
 //hielin.quemar(); Esto no es posible ya que hielin es un objeto del tipo PokemonHielo y esa clase no cuenta con ese método.
 
