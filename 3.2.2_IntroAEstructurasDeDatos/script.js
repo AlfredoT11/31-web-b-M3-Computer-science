@@ -88,3 +88,114 @@ console.log(`Me regrese a la página anterior que es: ${pilaNavegacionWeb.mostra
 let pilaArreglo = [];
 pilaArreglo.push('Hola');
 pilaArreglo.pop();
+
+/*
+Hacer una función que reciba como parámetros una pila, y un número.
+
+La función debe retornar tantos elementos como diga el número (segundo parámetro).
+
+Entrada : mifuncion([‘Manzana’,‘Cebolla’,‘Apio’,‘Naranja’,‘Papaya’,‘Sandía’,‘Melón’],4)
+Salida: [‘Manzana’,‘Cebolla’,‘Apio’]
+*/
+
+
+function eliminarElementos(pila, elementosAEliminar){
+    for(let i = 0; i < elementosAEliminar; i++){
+        if(pila.mostrarUltimoElemento() == null){
+            console.log(`La pila ya está vacía`);
+            return;
+        }
+        pila.eliminar();
+    }
+}
+
+let pilaEjercicio = new Pila();
+pilaEjercicio.agregar('www.google.com');
+pilaEjercicio.agregar('www.youtube.com');
+pilaEjercicio.agregar('www.youtube.com/TaylorSwift');
+pilaEjercicio.agregar('www.youtube.com/TaylorSwift/Karma');
+
+eliminarElementos(pilaEjercicio, 3);
+console.log(`Después de eliminar los 3 elementos, nos quedamos con: ${pilaEjercicio.mostrarUltimoElemento()}`);
+
+eliminarElementos(pilaEjercicio, 2);
+
+// Cola
+class Cola{
+
+    constructor(){
+        this.elementos = [];
+    }
+
+    //enqueue
+    agregarElemento(nuevoElemento){
+        this.elementos.unshift(nuevoElemento);
+    }
+
+    //queue
+    eliminarElemento(){
+        if(this.elementos.length > 0){
+            this.elementos.pop();
+        }
+    }
+
+    //back
+    // Ultimo (que llegó)      Inicio (primero que llegó)
+    //  0    1    2    3    4    5
+    //['A', 'B', 'C', 'D', 'E', 'F'] //length = 5
+    mostrarUltimoElemento(){
+        if(this.elementos.length > 0){
+            return this.elementos[0];
+        }
+        return null;
+    }
+
+    mostrarPrimerElemento(){
+        if(this.elementos.length > 0){
+            return this.elementos[this.elementos.length - 1];
+        }
+        return null;
+
+    }
+
+}
+
+let filaDeBoletos = new Cola();
+filaDeBoletos.agregarElemento('Andrés');
+filaDeBoletos.agregarElemento('Claudio');
+filaDeBoletos.agregarElemento('Luis');
+filaDeBoletos.agregarElemento('Yaset');
+
+console.log(`La primera persona en llegar fue: ${filaDeBoletos.mostrarPrimerElemento()}`);
+console.log(`La última persona en llegar fue: ${filaDeBoletos.mostrarUltimoElemento()}`);
+
+console.log(`${filaDeBoletos.mostrarPrimerElemento()} ya tiene su boleto.`);
+filaDeBoletos.eliminarElemento();
+console.log(`El siguiente en la fila es: ${filaDeBoletos.mostrarPrimerElemento()}`);
+console.log(`La última persona en la fila es: ${filaDeBoletos.mostrarUltimoElemento()}`);
+
+filaDeBoletos.agregarElemento('Arturo');
+console.log('LLegó una persona a la fila');
+console.log(`El siguiente en la fila es: ${filaDeBoletos.mostrarPrimerElemento()}`);
+console.log(`La última persona en la fila es: ${filaDeBoletos.mostrarUltimoElemento()}`);
+
+
+console.log(`${filaDeBoletos.mostrarPrimerElemento()} ya tiene su boleto.`);
+filaDeBoletos.eliminarElemento();
+console.log(`El siguiente en la fila es: ${filaDeBoletos.mostrarPrimerElemento()}`);
+console.log(`La última persona en la fila es: ${filaDeBoletos.mostrarUltimoElemento()}`);
+
+console.log(`${filaDeBoletos.mostrarPrimerElemento()} ya tiene su boleto.`);
+filaDeBoletos.eliminarElemento();
+console.log(`El siguiente en la fila es: ${filaDeBoletos.mostrarPrimerElemento()}`);
+console.log(`La última persona en la fila es: ${filaDeBoletos.mostrarUltimoElemento()}`);
+
+console.log(`${filaDeBoletos.mostrarPrimerElemento()} ya tiene su boleto.`);
+filaDeBoletos.eliminarElemento();
+console.log(`El siguiente en la fila es: ${filaDeBoletos.mostrarPrimerElemento()}`);
+console.log(`La última persona en la fila es: ${filaDeBoletos.mostrarUltimoElemento()}`);
+
+console.log(`${filaDeBoletos.mostrarPrimerElemento()} ya tiene su boleto.`);
+filaDeBoletos.eliminarElemento();
+console.log(`El siguiente en la fila es: ${filaDeBoletos.mostrarPrimerElemento()}`);
+console.log(`La última persona en la fila es: ${filaDeBoletos.mostrarUltimoElemento()}`);
